@@ -1,0 +1,6 @@
+torch
+numpy
+pydantic
+daily-python
+ultralytics
+opencv-python
