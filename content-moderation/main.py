@@ -8,7 +8,7 @@ class Item(BaseModel):
     room: str
 
 def predict(item, run_id, logger):
-    #item = Item(**item)
+    item = Item(**item)
     
     ##On startup, connect to room
     bot_name = "Content Moderator"
@@ -19,7 +19,9 @@ def predict(item, run_id, logger):
 
     client.set_user_name(bot_name)
     content_moderator.join(item.room)
-    ##get all participants and set video renderer
+    for participant in client.participants():
+        if participant != "local":
+            client.set_video_renderer(participant, callback = content_moderator.on_video_frame)
     
     while content_moderator.isRunning():
         pass

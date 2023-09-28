@@ -9,7 +9,7 @@ class Item(BaseModel):
 
 
 def predict(item, run_id, logger):
-    item = Item(**item)
+    # item = Item(**item)
     
     ##On startup, connect to room
     bot_name = "Pet Detector"
@@ -20,8 +20,10 @@ def predict(item, run_id, logger):
 
     client.set_user_name(bot_name)
     pet_detector.join(item.room)
-    ##TODO:get all participants and set video renderer
-    
+    for participant in client.participants():
+        if participant != "local":
+            client.set_video_renderer(participant, callback = pet_detector.on_video_frame)
+
     while pet_detector.isRunning():
         pass
 
