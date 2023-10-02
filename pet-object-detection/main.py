@@ -9,7 +9,7 @@ class Item(BaseModel):
 
 
 def predict(item, run_id, logger):
-    # item = Item(**item)
+    item = Item(**item)
     
     ##On startup, connect to room
     bot_name = "Pet Detector"
@@ -19,15 +19,18 @@ def predict(item, run_id, logger):
     client = pet_detector.client
 
     client.set_user_name(bot_name)
+    ##only join if not in call already
     pet_detector.join(item.room)
     for participant in client.participants():
         if participant != "local":
             client.set_video_renderer(participant, callback = pet_detector.on_video_frame)
 
-    while pet_detector.isRunning():
-        pass
-
+    try:
+        while pet_detector.isRunning():
+            pass
+    except KeyboardInterrupt:
+        client.leave()
+        print('\nInterrupted by user')
+    
+    client.leave()
     return {"message": "Call has finished running"}
-
-if __name__ == "__main__":
-    predict("",  "", "")
