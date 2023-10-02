@@ -9,9 +9,9 @@ for a cat or dog using a YOLOv8 model. If a pet is detected in any participants 
 You can deploy the example below in just a few easy steps.
 1. Git Clone the repository and make sure you are in the pet-object-detection folder
 2. Sign up at https://dashboard.cerebrium.ai since we will need to get our API keys to deploy this example.
-3. Run the following command in your terminal: `pip install --upgrade cerebrium``.
-4. Run the following command in your terminal: `cerebrium login <private_api_key>``. The private-api_key can be found on your Cerebrium dashboard.
-5. Run the command cerebrium deploy --config-file ./config.yaml
+3. Run the following command in your terminal: `pip install --upgrade cerebrium`.
+4. Run the following command in your terminal: `cerebrium login <private_api_key>`. The private-api_key can be found on your Cerebrium dashboard.
+5. Run the command `cerebrium deploy --config-file ./config.yaml petdetection`
 6. Your deployment will take about a minute or 2 since we are setting up your environment. Don't worry, subsequent deployments will be much faster if you make changes:)
 
 Congrats your deployment should be live and you should see it live in your dashboard. You then should see a Curl Request in your terminal or example requests in your dashboard which we will use in the steps below to call our implementation.
