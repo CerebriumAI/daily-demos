@@ -20,12 +20,11 @@ Congrats your deployment should be live and you should see it live in your dashb
 This Pet detector example joins your call as a bot, silently monitoring every video on your call. In order to get it to join a Daily call, you need to send it the video
 url you want it to join. This is done doing something similar to:
 
-```python
+```bash
 curl --location --request POST 'https://run.cerebrium.ai/v3/p-xxxx/pet-detection/predict' \
 --header 'Authorization: <JWT_TOKEN>' \
 --header 'Content-Type: application/json' \
 --data '{"room": "Your Daily Room URL"}'
-
 ```
 
 ## Questions/Feedback

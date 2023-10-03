@@ -18,7 +18,7 @@ Congrats your deployment should be live and you should see it live in your dashb
 ## Using Content Moderator
 This Content Moderator example joins your call as a bot, silently monitoring every video on your call. In order to get it to join a Daily call, you need to send it the video url you want it to join. This is done doing something similar to:
 
-```python
+```bash
 curl --location --request POST 'https://run.cerebrium.ai/v3/p-xxxx/content-moderation/predict' \
 --header 'Authorization: <JWT_TOKEN>' \
 --header 'Content-Type: application/json' \

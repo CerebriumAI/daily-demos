@@ -23,7 +23,7 @@ Congrats your deployment should be live after a minute or two and you should see
 ## Using Transcription bot
 This transcription example joins your call as a bot, silently monitoring everything that is said on a call. In order to get it to join a Daily call, you need to send it the video url you want it to join and the email address you want it to send the deployment to afterwards. This is done doing something similar to:
 
-```python
+```bash
 curl --location --request POST 'https://run.cerebrium.ai/v3/p-xxxx/audio-monitor/predict' \
 --header 'Authorization: <JWT_TOKEN>' \
 --header 'Content-Type: application/json' \
