@@ -1,0 +1,6 @@
+torch
+numpy
+pydantic
+daily-python
+transformers
+pillow

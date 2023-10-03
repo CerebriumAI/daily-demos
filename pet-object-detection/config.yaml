@@ -3,8 +3,8 @@
 cpu: 4
 disable_animation: false
 exclude: '[./.*, ./__*]'
-hardware: AMPERE_A5000
+hardware: CPU
 include: '[./*, main.py, requirements.txt, pkglist.txt, conda_pkglist.txt]'
 log_level: INFO
-memory: 16
+memory: 18
 min_replicas: 1

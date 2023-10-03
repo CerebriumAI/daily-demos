@@ -11,7 +11,7 @@ You can deploy the example below in just a few easy steps.
 2. Sign up at https://dashboard.cerebrium.ai since we will need to get our API keys to deploy this example.
 3. Run the following command in your terminal: `pip install --upgrade cerebrium``.
 4. Run the following command in your terminal: `cerebrium login <private_api_key>``. The private-api_key can be found on your Cerebrium dashboard.
-5. Run the command cerebrium deploy --config-file ./config.yaml
+5. Run the command cerebrium deploy pet-detection --config-file ./config.yaml
 6. Your deployment will take about a minute or 2 since we are setting up your environment. Don't worry, subsequent deployments will be much faster if you make changes:)
 
 Congrats your deployment should be live and you should see it live in your dashboard. You then should see a Curl Request in your terminal or example requests in your dashboard which we will use in the steps below to call our implementation.
@@ -21,6 +21,10 @@ This Pet detector example joins your call as a bot, silently monitoring every vi
 url you want it to join. This is done doing something similar to:
 
 ```python
+curl --location --request POST 'https://run.cerebrium.ai/v3/p-xxxx/pet-detection/predict' \
+--header 'Authorization: <JWT_TOKEN>' \
+--header 'Content-Type: application/json' \
+--data '{"room": "Your Daily Room URL"}'
 
 ```
 

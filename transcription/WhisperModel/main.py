@@ -15,12 +15,14 @@ model = WhisperModel(model_size, device="cuda", compute_type="float16")
 
 def predict(item, run_id, logger):
     item = Item(**item)
-    
-    segments, info = model.transcribe(f"/persistent-storage/{item.file_id}/audio.mp3", beam_size=5)
-    with open(f'/persistent-storage/{run_id}/final_transcription.txt', 'wb') as f:
+    segments, info = model.transcribe(f"/persistent-storage/{item.file_id}/final.wav", beam_size=5)
+    with open(f'/persistent-storage/{run_id}/final_transcription.txt', 'w') as f:
         for segment in segments:
             f.write("[%.2fs -> %.2fs] %s" % (segment.start, segment.end, segment.text))
         f.close()
+
+    # Opening the file again in read mode
+    with open(f'/persistent-storage/{run_id}/final_transcription.txt', 'r') as f:
+        transcription_text = f.read()
     
-    ##TODO: Send file to webhook endpoint
-    return {"message": "finished transcribing file"}
+    return {"message": "finished transcribing file", "text": transcription_text}

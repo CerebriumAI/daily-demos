@@ -3,6 +3,8 @@ from pydantic import BaseModel
 
 from daily import *
 from pet_detection import PetDetection 
+from ultralytics import YOLO
+
 
 class Item(BaseModel):
     room: str
@@ -12,7 +14,7 @@ def predict(item, run_id, logger):
     item = Item(**item)
     
     ##On startup, connect to room
-    bot_name = "Pet Detector"
+    bot_name = "Dog Detector"
 
     Daily.init()
     pet_detector = PetDetection()
@@ -28,9 +30,8 @@ def predict(item, run_id, logger):
     try:
         while pet_detector.isRunning():
             pass
-    except KeyboardInterrupt:
-        client.leave()
-        print('\nInterrupted by user')
+    except:
+        print('\nIssue detected')
     
     client.leave()
     return {"message": "Call has finished running"}

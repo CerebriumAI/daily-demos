@@ -1,0 +1,49 @@
+.riskScores {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.riskScore {
+  position: absolute;
+  z-index: 2;
+  color: var(--grey);
+
+  bottom: 0;
+  right: 0;
+  font-size: 14px;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  border: 8px solid red;
+}
+
+.warning {
+  border-color: red;
+}
+
+.warning .riskLabel {
+  background-color: red;
+  color: white;
+}
+
+.success {
+  border-color: green;
+}
+
+.success .riskLabel {
+  background-color: green;
+  color: white;
+}
+
+.riskScore .riskLabel {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 5px;
+  text-align: center;
+  font-size: 1.8rem;
+  color: white;
+}

@@ -4,3 +4,4 @@ pydantic
 daily-python
 ultralytics
 opencv-python
+pillow
