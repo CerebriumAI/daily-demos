@@ -5,6 +5,8 @@
 This repository contains code for the Pet detection demo project using Daily and Cerebrium. In this example, we have a bot that monitors each participants screen
 for a cat or dog using a YOLOv8 model. If a pet is detected in any participants frame, the bot posts a frame of it to the call with bounding boxes around the pet.
 
+The model trained for this example is extremely basic (trained on 250 examples) and is for demo purposes. We recommend you fine-tune your own model to get more performant results.
+
 ## Deployment Instructions
 You can deploy the example below in just a few easy steps.
 1. Git Clone the repository and make sure you are in the pet-object-detection folder
